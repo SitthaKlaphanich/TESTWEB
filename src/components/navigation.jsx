@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Navigation = (props) => {
   return (
@@ -18,14 +19,11 @@ export const Navigation = (props) => {
             <span className="icon-bar"></span>{" "}
           </button>
           <a className="navbar-brand page-scroll" href="#page-top">
-          QuadForm Software
+            QuadForm Software
           </a>{" "}
         </div>
 
-        <div
-          className="collapse navbar-collapse"
-          id="bs-example-navbar-collapse-1"
-        >
+        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul className="nav navbar-nav navbar-right">
             <li>
               <a href="#features" className="page-scroll">
@@ -61,6 +59,11 @@ export const Navigation = (props) => {
               <a href="#contact" className="page-scroll">
                 ติดต่อ
               </a>
+            </li>
+            <li>
+              <Link to="/login" className="page-scroll">
+                เข้าสู่ระบบ
+              </Link>
             </li>
           </ul>
         </div>
