@@ -1,32 +1,102 @@
 // components/login.jsx
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [isRegistered, setIsRegistered] = useState(true);
+  const [passwordConfirm, setPasswordConfirm] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    // ตรวจสอบข้อมูลที่กรอกในฟอร์ม (เช่น validate email/password)
+    
     if (email === '' || password === '') {
       setError('Email และ Password ไม่สามารถเว้นว่างได้');
       return;
     }
 
-    // ทดสอบการเข้าสู่ระบบ
-    console.log('การเข้าสู่ระบบ', { email, password });
-    // เคลียร์ฟิลด์เมื่อเข้าสู่ระบบเสร็จ
-    setEmail('');
-    setPassword('');
-    setError('');
+    try {
+      const response = await axios.post('http://localhost:5000/api/login', { email, password });
+      console.log('Login successful', response.data);
+      // จัดเก็บ Token
+      localStorage.setItem('token', response.data.token);
+    } catch (err) {
+      setError('Invalid credentials');
+    }
+  };
+
+  const handleRegisterSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (email === '' || password === '' || passwordConfirm === '') {
+      setError('กรุณากรอกข้อมูลให้ครบถ้วน');
+      return;
+    }
+    if (password !== passwordConfirm) {
+      setError('รหัสผ่านไม่ตรงกัน');
+      return;
+    }
+
+    try {
+      await axios.post('http://localhost:5000/api/register', { email, password });
+      setIsRegistered(true); // เปลี่ยนกลับไปที่หน้า Login
+    } catch (err) {
+      setError('การสมัครสมาชิกล้มเหลว');
+    }
+  };
+
+  // กำหนดสไตล์สำหรับฟอร์ม
+  const styles = {
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '100vh',
+      backgroundColor: '#f7f7f7',
+    },
+    form: {
+      backgroundColor: '#fff',
+      padding: '20px',
+      borderRadius: '5px',
+      boxShadow: '0 2px 10px rgba(0,0,0,0.1)',
+    },
+    input: {
+      width: '100%',
+      padding: '10px',
+      margin: '10px 0',
+      border: '1px solid #ccc',
+      borderRadius: '4px',
+    },
+    button: {
+      backgroundColor: '#28a745',
+      color: '#fff',
+      padding: '10px',
+      border: 'none',
+      borderRadius: '4px',
+      cursor: 'pointer',
+    },
+    error: {
+      color: 'red',
+      fontWeight: 'bold',
+    },
+    toggle: {
+      marginTop: '10px',
+    },
+    toggleLink: {
+      color: '#007bff',
+      cursor: 'pointer',
+    },
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <form onSubmit={handleSubmit} style={{ padding: '20px', border: '1px solid #ccc', borderRadius: '5px' }}>
-        <h2>Login</h2>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
+    <div style={styles.container}>
+      <form onSubmit={isRegistered ? handleLoginSubmit : handleRegisterSubmit} style={styles.form}>
+        <h2>{isRegistered ? 'Login' : 'Sign Up'}</h2>
+        {error && <p style={styles.error}>{error}</p>}
+        
         <div>
           <label htmlFor="email">Email:</label>
           <input
@@ -35,7 +105,7 @@ const Login = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
+            style={styles.input}
           />
         </div>
         <div>
@@ -46,12 +116,34 @@ const Login = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            style={{ width: '100%', padding: '8px', marginBottom: '10px' }}
+            style={styles.input}
           />
         </div>
-        <button type="submit" style={{ width: '100%', padding: '10px', backgroundColor: '#007bff', color: 'white', border: 'none', borderRadius: '5px' }}>
-          Login
+        
+        {!isRegistered && (
+          <div>
+            <label htmlFor="passwordConfirm">Confirm Password:</label>
+            <input
+              type="password"
+              id="passwordConfirm"
+              value={passwordConfirm}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
+              required
+              style={styles.input}
+            />
+          </div>
+        )}
+
+        <button type="submit" style={styles.button}>
+          {isRegistered ? 'Login' : 'Sign Up'}
         </button>
+        
+        <p style={styles.toggle}>
+          {isRegistered ? 'ยังไม่มีบัญชี? ' : 'มีบัญชีอยู่แล้ว? '}
+          <span onClick={() => setIsRegistered(!isRegistered)} style={styles.toggleLink}>
+            {isRegistered ? 'ลงทะเบียน' : 'เข้าสู่ระบบ'}
+          </span>
+        </p>
       </form>
     </div>
   );
