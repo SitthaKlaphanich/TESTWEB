@@ -9,7 +9,7 @@ import { Gallery } from "./components/gallery";
 import { Testimonials } from "./components/testimonials";
 import { Team } from "./components/Team";
 import { Contact } from "./components/contact";
-import Login from "./components/login"; 
+import Login from "./components/login";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
@@ -21,6 +21,7 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({});
+  
   useEffect(() => {
     setLandingPageData(JsonData);
   }, []);
@@ -28,19 +29,27 @@ const App = () => {
   return (
     <Router>
       <div>
-        <Navigation />
         <Routes>
-          <Route path="/login" element={<Login />} /> {/* แก้ไขจาก component เป็น element */}
-          <Route path="/" element={<>
-            <Header data={landingPageData.Header} />
-            <Features data={landingPageData.Features} />
-            <About data={landingPageData.About} />
-            <Services data={landingPageData.Services} />
-            <Gallery data={landingPageData.Gallery} />
-            <Testimonials data={landingPageData.Testimonials} />
-            <Team data={landingPageData.Team} />
-            <Contact data={landingPageData.Contact} />
-          </>} />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
+          <Route
+            path="/"
+            element={
+              <>
+                <Navigation />
+                <Header data={landingPageData.Header} />
+                <Features data={landingPageData.Features} />
+                <About data={landingPageData.About} />
+                <Services data={landingPageData.Services} />
+                <Gallery data={landingPageData.Gallery} />
+                <Testimonials data={landingPageData.Testimonials} />
+                <Team data={landingPageData.Team} />
+                <Contact data={landingPageData.Contact} />
+              </>
+            }
+          />
         </Routes>
       </div>
     </Router>
