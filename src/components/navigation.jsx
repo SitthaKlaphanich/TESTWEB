@@ -31,7 +31,7 @@ export const Navigation = (props) => {
             <li><a href="#testimonials" className="page-scroll">ลูกค้า</a></li>
             <li><a href="#team" className="page-scroll">ทีม</a></li>
             <li><a href="#contact" className="page-scroll">ติดต่อ</a></li>
-            <li><Link to="/login" className="page-scroll">เข้าสู่ระบบ</Link></li>
+            
           </ul>
         </div>
       </div>

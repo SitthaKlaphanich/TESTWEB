@@ -3,8 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const User = require('./userModel');
 const Team = require('./teamModel');
+const Gallery = require('./galleryModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -48,29 +48,14 @@ app.get('/api/team', async (req, res) => {
   }
 });
 
-// ลงทะเบียนผู้ใช้
-app.post('/api/register', async (req, res) => {
-  const { name, email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
-  
-  const newUser = new User({ name, email, password: hashedPassword });
-  await newUser.save();
-  
-  res.status(201).send('User registered');
-});
-
-// เข้าสู่ระบบผู้ใช้
-app.post('/api/login', async (req, res) => {
-  const { email, password } = req.body;
-  
-  const user = await User.findOne({ email });
-  if (!user) return res.status(400).send('Invalid credentials');
-  
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) return res.status(400).send('Invalid credentials');
-  
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
-  res.json({ token });
+// เพิ่ม endpoint สำหรับดึงข้อมูล gallery
+app.get('/api/gallery', async (req, res) => {
+  try {
+    const galleryItems = await Gallery.find(); // แทนที่ Gallery ด้วยชื่อโมเดลของคุณ
+    res.json(galleryItems);
+  } catch (error) {
+    res.status(500).send('Error fetching gallery data');
+  }
 });
 
 app.listen(PORT, () => {

@@ -1,7 +1,26 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Image } from "./image";
-import React from "react";
 
-export const Gallery = (props) => {
+export const Gallery = () => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/gallery");
+        setData(response.data);
+      } catch (error) {
+        console.error("Error fetching gallery data", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div id="portfolio" className="text-center">
       <div className="container">
@@ -14,8 +33,9 @@ export const Gallery = (props) => {
         </div>
         <div className="row">
           <div className="portfolio-items">
-            {props.data
-              ? props.data.map((d, i) => (
+            {loading
+              ? "Loading..."
+              : data.map((d, i) => (
                   <div
                     key={`${d.title}-${i}`}
                     className="col-sm-6 col-md-4 col-lg-4"
@@ -26,8 +46,7 @@ export const Gallery = (props) => {
                       smallImage={d.smallImage}
                     />
                   </div>
-                ))
-              : "Loading..."}
+                ))}
           </div>
         </div>
       </div>
