@@ -5,6 +5,7 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const Team = require('./teamModel');
 const Gallery = require('./galleryModel');
+const Clients = require('./clientsModel');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -55,6 +56,15 @@ app.get('/api/gallery', async (req, res) => {
     res.json(galleryItems);
   } catch (error) {
     res.status(500).send('Error fetching gallery data');
+  }
+});
+
+app.get("/api/client", async (req, res) => {
+  try {
+    const clientpeople = await Clients.find();
+    res.json(clientpeople);
+  } catch (err) {
+    res.status(500).json( 'Error fetching gallery data' );
   }
 });
 
