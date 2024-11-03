@@ -6,9 +6,6 @@ const dotenv = require('dotenv');
 const Team = require('./teamModel');
 const Gallery = require('./galleryModel');
 const Clients = require('./clientsModel');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-
 
 dotenv.config();
 
