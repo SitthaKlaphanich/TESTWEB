@@ -3,10 +3,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const Team = require('./teamModel');
-const Gallery = require('./galleryModel');
-const Clients = require('./clientsModel');
-const Contact = require('./contactModel'); 
+const Team = require('.Model/teamModel');
+const Gallery = require('.Model/galleryModel');
+const Clients = require('.Model/clientsModel');
+const Contact = require('.Model/contactModel'); 
 dotenv.config();
 
 const app = express();
