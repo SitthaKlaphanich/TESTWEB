@@ -25,10 +25,9 @@ export const Gallery = () => {
     <div id="portfolio" className="text-center">
       <div className="container">
         <div className="section-title">
-          <h2>Gallery</h2>
+          <h2>ภาพ ผลงาน</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
+            รวบรวมผลงาน
           </p>
         </div>
         <div className="row">
