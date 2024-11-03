@@ -4,18 +4,18 @@
     "paragraph": "การเริ่มต้นมาจาก ไอเดีย จะไม่มีค่า ถ้าคุณไม่เริ่มต้นทำ "
   },
   "About": {
-    "paragraph": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "paragraph": "QUADFORM SOFTWARE เป็นบริษัทเทคโนโลยีที่ก่อตั้งโดยทีมงานที่เชี่ยวชาญและหลงใหลในนวัตกรรมไอที โดยมีเป้าหมายในการสร้างโซลูชั่นซอฟต์แวร์ที่ล้ำสมัยและตอบโจทย์ความต้องการในยุคดิจิทัล เรามุ่งมั่นที่จะทำให้ธุรกิจของลูกค้าเติบโตอย่างมีประสิทธิภาพด้วยผลิตภัณฑ์และบริการที่คัดสรรอย่างพิถีพิถัน",
     "Why": [
-      "Lorem ipsum dolor",
-      "Tempor incididunt",
-      "Lorem ipsum dolor",
-      "Incididunt ut labore"
+      "ทีมงานผู้เชี่ยวชาญสี่คน",
+      "โซลูชันที่ปรับแต่งได้",
+      "เทคโนโลยีล้ำสมัย",
+      "ความปลอดภัยสูงสุด"
     ],
     "Why2": [
-      "Aliquip ex ea commodo",
-      "Lorem ipsum dolor",
-      "Exercitation ullamco",
-      "Lorem ipsum dolor"
+      "บริการหลังการขายที่ใส่ใจ",
+      "ประสบการณ์ในหลากหลายอุตสาหกรรม",
+      "กระบวนการทำงานที่โปร่งใส",
+      "พัฒนาสู่ความยั่งยืน"
     ]
   },
   "Gallery": [
@@ -68,32 +68,32 @@
   "Services": [
     {
       "icon": "fa fa-wordpress",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "name": "ระบบจัดการเว็บไซต์",
+      "text": "ช่วยสร้างและดูแลเว็บไซต์ให้มีประสิทธิภาพ พร้อมทั้งรองรับการปรับแต่งตามความต้องการ"
     },
     {
       "icon": "fa fa-cart-arrow-down",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "name": "โซลูชันอีคอมเมิร์ซ",
+      "text": "สร้างแพลตฟอร์มการขายสินค้าออนไลน์ที่ครบวงจร พร้อมฟังก์ชันการจัดการสินค้าที่สะดวกและง่ายดาย"
     },
     {
       "icon": "fa fa-cloud-download",
-      "name": "Lorem ipsum dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "name": "การจัดเก็บข้อมูลบนคลาวด์",
+      "text": "ระบบคลาวด์ที่ปลอดภัยและมีประสิทธิภาพ ช่วยให้การจัดเก็บข้อมูลเป็นไปอย่างราบรื่นและเข้าถึงได้ง่าย"
     },
     {
       "icon": "fa fa-language",
-      "name": "Consectetur adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
+      "name": "ระบบการแปลภาษา",
+      "text": "รองรับการแปลเนื้อหาในระบบต่าง ๆ เพื่อให้การสื่อสารกับผู้ใช้จากหลากหลายประเทศเป็นไปอย่างราบรื่น"
     },
     {
       "icon": "fa fa-plane",
-      "name": "Lorem ipsum dolor",
+      "name": "การเดินทางและการท่องเที่ยว",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
     },
     {
       "icon": "fa fa-pie-chart",
-      "name": "Consectetur adipiscing",
+      "name": "การวิเคราะห์ข้อมูลธุรกิจ",
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
     }
   ],
@@ -162,23 +162,23 @@
   "Features": [
     {
       "icon": "fa fa-comments-o",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "สือสาร",
+      "text": "ให้ความสำคัญกับการสื่อสารอย่างเปิดเผยกับลูกค้าในทุกขั้นตอนของการพัฒนา"
     },
     {
       "icon": "fa fa-bullhorn",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "เทคโนโลยีสมัยใหม่",
+      "text": "ใช้เทคโนโลยีล่าสุดเพื่อช่วยให้ธุรกิจของลูกค้าทันสมัยและเติบโตอย่างรวดเร็ว"
     },
     {
       "icon": "fa fa-group",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "ทำงานเป็นทีม",
+      "text": "ทีมงานมืออาชีพที่ทำงานร่วมกันเพื่อส่งมอบโซลูชันที่ตอบโจทย์ลูกค้า"
     },
     {
       "icon": "fa fa-magic",
-      "title": "Lorem ipsum",
-      "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+      "title": "ออกแบบทันสมัย",
+      "text": "เน้นการออกแบบที่ทันสมัยและปรับแต่งได้ เพื่อให้เหมาะสมกับธุรกิจในยุคปัจจุบัน"
     }
   ]
 }
