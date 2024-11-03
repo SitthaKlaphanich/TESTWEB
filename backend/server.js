@@ -25,10 +25,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 // ลงทะเบียนผู้ใช้
 app.post('/api/register', async (req, res) => {
-  const { email, password } = req.body;
+  const { name, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
   
-  const newUser = new User({ email, password: hashedPassword });
+  const newUser = new User({ name, email, password: hashedPassword });
   await newUser.save();
   
   res.status(201).send('User registered');

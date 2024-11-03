@@ -1,10 +1,10 @@
-// components/login.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState(''); 
   const [error, setError] = useState('');
   const [isRegistered, setIsRegistered] = useState(true);
   const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -30,7 +30,7 @@ const Login = () => {
   const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     
-    if (email === '' || password === '' || passwordConfirm === '') {
+    if (name === '' || email === '' || password === '' || passwordConfirm === '') { 
       setError('กรุณากรอกข้อมูลให้ครบถ้วน');
       return;
     }
@@ -40,7 +40,7 @@ const Login = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/register', { email, password });
+      await axios.post('http://localhost:5000/api/register', { name, email, password }); 
       setIsRegistered(true); // เปลี่ยนกลับไปที่หน้า Login
     } catch (err) {
       setError('การสมัครสมาชิกล้มเหลว');
@@ -96,6 +96,20 @@ const Login = () => {
       <form onSubmit={isRegistered ? handleLoginSubmit : handleRegisterSubmit} style={styles.form}>
         <h2>{isRegistered ? 'Login' : 'Sign Up'}</h2>
         {error && <p style={styles.error}>{error}</p>}
+        
+        {!isRegistered && ( // แสดงฟิลด์ name เฉพาะในหน้า Sign Up
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              style={styles.input}
+            />
+          </div>
+        )}
         
         <div>
           <label htmlFor="email">Email:</label>
