@@ -6,7 +6,7 @@ const dotenv = require('dotenv');
 const Team = require('./teamModel');
 const Gallery = require('./galleryModel');
 const Clients = require('./clientsModel');
-
+const Contact = require('./contactModel'); 
 dotenv.config();
 
 const app = express();
@@ -64,6 +64,19 @@ app.get("/api/client", async (req, res) => {
     res.status(500).json( 'Error fetching gallery data' );
   }
 });
+
+app.post('/api/contact', async (req, res) => {
+  const { name, email, message } = req.body;
+  const newContact = new Contact({ name, email, message });
+  
+  try {
+    await newContact.save();
+    res.status(201).send('Contact message saved');
+  } catch (error) {
+    res.status(400).send('Error saving contact message');
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

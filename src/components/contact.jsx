@@ -15,26 +15,32 @@ export const Contact = (props) => {
     setState((prevState) => ({ ...prevState, [name]: value }));
   };
   const clearState = () => setState({ ...initialState });
-  
-  
-  const handleSubmit = (e) => {
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(name, email, message);
     
-    {/* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */ }
-    
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-      .then(
-        (result) => {
-          console.log(result.text);
-          clearState();
+    try {
+      const response = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
         },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+        body: JSON.stringify({ name, email, message })
+      });
+      
+      if (response.ok) {
+        alert("ข้อความของคุณถูกส่งเรียบร้อยแล้ว!"); // แสดง popup เมื่อสำเร็จ
+        clearState();
+      } else {
+        alert("เกิดข้อผิดพลาดในการส่งข้อความ กรุณาลองใหม่อีกครั้ง");
+      }
+    } catch (error) {
+      alert("เกิดข้อผิดพลาดในการส่งข้อความ กรุณาลองใหม่อีกครั้ง");
+      console.error("Error submitting form", error);
+    }
   };
+  
   return (
     <div>
       <div id="contact">
