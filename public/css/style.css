@@ -415,42 +415,59 @@ header .intro-text {
 #testimonials {
   padding: 100px 0;
   background: #f6f6f6;
+  text-align: left; /* จัดข้อความชิดซ้าย */
 }
-#testimonials i {
-  color: #e6e6e6;
-  font-size: 32px;
-  margin-bottom: 20px;
+
+#testimonials h2 {
+  font-size: 36px;
+  margin-bottom: 30px; /* เพิ่มระยะห่าง */
+  color: #333; /* เปลี่ยนสีข้อความ */
 }
+
 .testimonial {
   position: relative;
   padding: 20px;
+  margin: 20px 0; /* เพิ่มระยะห่างระหว่าง testimonials */
+  background: white; /* ทำให้ปูพื้นสีขาว */
+  border-radius: 8px; /* เพิ่มการโค้งมนที่มุม */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+  max-width: 600px; /* จำกัดความกว้าง */
+  clear: both; /* ทำให้กรอบใหม่เริ่มต้นที่บรรทัดใหม่ */
 }
+
+.testimonial-content {
+  position: relative;
+}
+
 .testimonial-image {
-  float: left;
-  margin-right: 15px;
+  float: left; /* ให้ภาพอยู่ทางซ้าย */
+  margin-right: 15px; /* เพิ่มระยะห่างระหว่างภาพกับข้อความ */
 }
-.testimonial-image,
+
+
 .testimonial-image img {
   display: block;
   width: 64px;
   height: 64px;
   border-radius: 50%;
+  border: 2px solid #ccc; /* เพิ่มเส้นขอบให้กับภาพ */
 }
-.testimonial-content {
-  position: relative;
-  overflow: hidden;
-}
+
 .testimonial-content p {
   margin-bottom: 0;
   font-size: 14px;
   font-style: italic;
+  color: #555; /* เปลี่ยนสีข้อความให้ชัดขึ้น */
 }
+
 .testimonial-meta {
   margin-top: 10px;
   font-size: 15px;
   font-weight: 600;
   color: #666;
 }
+
+
 /* Team Section */
 #team {
   padding: 100px 0;
